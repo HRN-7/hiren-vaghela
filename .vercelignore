@@ -1,0 +1,9 @@
+.venv
+backend
+admin
+upload
+tmp
+artifacts
+.env
+.env.*.local
+qa-mobile.html

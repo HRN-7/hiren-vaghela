@@ -1,0 +1,208 @@
+crop,commodity_id,district,district_id,market,variety,observed_days,oldest_date,newest_date,eligible_120
+Cotton,15,Unknown,,Kalediya APMC,Shanker 6 (B) 30mm FIne,530,2025-01-03,2026-09-23,YES
+Cotton,15,Unknown,,Modasar APMC,Shanker 6 (B) 30mm FIne,524,2025-01-03,2026-09-23,YES
+Cotton,15,Unknown,,Hadad     APMC,Shanker 6 (B) 30mm FIne,517,2025-01-03,2026-09-23,YES
+Cotton,15,Unknown,,Bodeliu APMC,Shanker 6 (B) 30mm FIne,489,2025-01-03,2026-09-23,YES
+Cotton,15,Unknown,,Rajkot APMC,Narma BT Cotton,487,2025-01-01,2026-09-23,YES
+Cotton,15,Unknown,,JASDAN APMC,Shanker 6 (B) 30mm FIne,434,2025-01-01,2026-09-23,YES
+Cotton,15,Unknown,,Jetpur(Dist.Rajkot) APMC,Cotton (Unginned),427,2025-01-02,2026-07-31,YES
+Cotton,15,Unknown,,Rajula APMC,Local,402,2025-01-02,2026-09-23,YES
+Cotton,15,Unknown,,Babra APMC,Shanker 6 (B) 30mm FIne,399,2025-01-17,2026-09-23,YES
+Cotton,15,Unknown,,Jamnagar APMC,Other,384,2025-01-20,2026-09-23,YES
+Cotton,15,Unknown,,Savarkundla APMC,Narma BT Cotton,381,2025-01-02,2026-06-22,YES
+Cotton,15,Unknown,,The Agricultural Produce Market Committee-Amreli,Other,377,2025-01-01,2026-09-23,YES
+Cotton,15,Unknown,,APMC Bagasara,Other,361,2025-01-03,2026-09-23,YES
+Cotton,15,Unknown,,Bhesan APMC,Other,326,2025-01-04,2026-09-23,YES
+Cotton,15,Unknown,,Gondal APMC,H.B (Unginned),317,2025-01-04,2026-09-22,YES
+Cotton,15,Unknown,,Jambusar APMC,Other,291,2025-01-03,2025-11-06,YES
+Cotton,15,Unknown,,Jambusar(Kaavi) APMC,Other,291,2025-01-03,2025-11-06,YES
+Cotton,15,Unknown,,Bhavnagar APMC,Other,283,2025-01-01,2026-09-23,YES
+Cotton,15,Unknown,,Vankaner APMC,Other,277,2025-01-06,2026-09-23,YES
+Cotton,15,Unknown,,Taleja APMC,Shanker 6 (B) 30mm FIne,276,2025-01-01,2026-07-01,YES
+Cotton,15,Unknown,,Visnagar APMC,Other,276,2025-01-01,2026-09-23,YES
+Cotton,15,Unknown,,Patan APMC,Other,257,2025-01-02,2026-09-22,YES
+Cotton,15,Unknown,,Kalawad APMC,Other,255,2025-01-04,2026-09-14,YES
+Cotton,15,Unknown,,Unava APMC,Other,244,2025-01-01,2026-09-23,YES
+Cotton,15,Unknown,,Viramgam APMC,Other,222,2025-01-03,2026-09-21,YES
+Cotton,15,Unknown,,Botad(Haddad) APMC,Shanker 6 (B) 30mm FIne,215,2025-01-02,2025-11-07,YES
+Cotton,15,Unknown,,Chotila APMC,Shanker 6 (B) 30mm FIne,211,2025-01-01,2026-04-22,YES
+Cotton,15,Unknown,,Dhoraji APMC,H.B (Unginned),211,2025-01-03,2026-09-21,YES
+Cotton,15,Unknown,,Siddhpur APMC,H.Y.4 (Unginned),207,2025-01-01,2026-09-23,YES
+Cotton,15,Unknown,,Mahuva(Station Road) APMC,Shanker 6 (B) 30mm FIne,205,2025-01-02,2026-09-17,YES
+Cotton,15,Unknown,,Dhari APMC,Local,204,2025-01-02,2026-09-23,YES
+Cotton,15,Unknown,,Vadali APMC,Other,202,2025-01-02,2026-04-15,YES
+Cotton,15,Unknown,,Jam Jodhpur APMC,Other,200,2025-11-07,2026-09-21,YES
+Cotton,15,Unknown,,Dhragradhra APMC,RCH-2,198,2025-01-01,2026-09-23,YES
+Cotton,15,Unknown,,Jam Jodhpur APMC,Bunny,193,2025-03-01,2026-01-17,YES
+Cotton,15,Unknown,,Manavdar APMC,Cotton (Unginned),190,2025-01-01,2026-05-27,YES
+Cotton,15,Unknown,,Dhrol APMC,Other,183,2025-01-02,2026-09-23,YES
+Cotton,15,Unknown,,Himatnagar APMC,Cotton (Unginned),181,2025-01-02,2026-09-23,YES
+Cotton,15,Unknown,,APMC HALVAD,Other,168,2025-01-01,2025-11-15,YES
+Cotton,15,Unknown,,Morbi APMC,Other,167,2025-11-08,2026-09-23,YES
+Cotton,15,Unknown,,APMC HALVAD,Local,162,2025-11-17,2026-09-23,YES
+Cotton,15,Unknown,,Botad(Haddad) APMC,Cotton (Unginned),162,2025-12-01,2026-09-22,YES
+Cotton,15,Unknown,,Jasdan(Vichhiya) APMC,Shanker 6 (B) 30mm FIne,162,2025-01-28,2026-06-11,YES
+Cotton,15,Unknown,,Limdi APMC,Shanker 6 (B) 30mm FIne,160,2025-01-01,2026-04-30,YES
+Cotton,15,Unknown,,Morbi APMC,Local,155,2025-01-01,2025-11-05,YES
+Cotton,15,Unknown,,Thara APMC,RCH-2,154,2025-01-01,2026-02-26,YES
+Cotton,15,Unknown,,Dhandhuka APMC,Other,153,2025-11-07,2026-05-16,YES
+Cotton,15,Unknown,,Nizar APMC,Other,148,2025-01-02,2025-11-11,YES
+Cotton,15,Unknown,,Upleta APMC,Other,135,2025-01-02,2026-01-05,YES
+Groundnut,10,Unknown,,Rajkot APMC,Bold,480,2025-01-01,2026-09-23,YES
+Groundnut,10,Unknown,,Rajkot APMC,G20,480,2025-01-01,2026-09-23,YES
+Groundnut,10,Unknown,,Porbandar APMC,Bold,461,2025-01-02,2026-09-23,YES
+Groundnut,10,Unknown,,Morbi APMC,Other,435,2025-01-01,2026-09-23,YES
+Groundnut,10,Unknown,,JASDAN APMC,G20,429,2025-01-01,2026-09-23,YES
+Groundnut,10,Unknown,,Jetpur(Dist.Rajkot) APMC,Other,425,2025-01-02,2026-09-23,YES
+Groundnut,10,Unknown,,Jamnagar APMC,Other,422,2025-01-20,2026-09-23,YES
+Groundnut,10,Unknown,,Veraval APMC,G20,413,2025-01-01,2026-09-23,YES
+Groundnut,10,Unknown,,Jetpur(Dist.Rajkot) APMC,Bold,401,2025-01-02,2026-09-23,YES
+Groundnut,10,Unknown,,Savarkundla APMC,Bold,396,2025-01-02,2026-09-23,YES
+Groundnut,10,Unknown,,Savarkundla APMC,Big (With Shell),392,2025-01-02,2026-09-19,YES
+Groundnut,10,Unknown,,Rajula APMC,Local,383,2025-01-02,2026-09-23,YES
+Groundnut,10,Unknown,,Junagadh APMC,Bold,382,2025-01-02,2026-09-23,YES
+Groundnut,10,Unknown,,Jam Jodhpur APMC,G20,375,2025-03-01,2026-09-21,YES
+Groundnut,10,Unknown,,Visavadar APMC,Other,371,2025-01-02,2026-09-23,YES
+Groundnut,10,Unknown,,APMC HALVAD,Other,364,2025-01-01,2026-09-23,YES
+Groundnut,10,Unknown,,Kalawad APMC,Other,356,2025-01-04,2026-09-17,YES
+Groundnut,10,Unknown,,APMC Bagasara,Balli/Habbu,318,2025-01-03,2026-09-23,YES
+Groundnut,10,Unknown,,Himatnagar APMC,JL-24,314,2025-01-27,2026-09-23,YES
+Groundnut,10,Unknown,,Deesa APMC,Other,313,2025-01-02,2026-09-23,YES
+Groundnut,10,Unknown,,Upleta APMC,Other,306,2025-01-02,2026-09-19,YES
+Groundnut,10,Unknown,,Taleja APMC,G20,297,2025-01-01,2026-05-19,YES
+Groundnut,10,Unknown,,Taleja APMC,Bold,282,2025-01-01,2026-09-19,YES
+Groundnut,10,Unknown,,Dhrol APMC,Other,273,2025-01-09,2026-09-23,YES
+Groundnut,10,Unknown,,Mahuva(Station Road) APMC,G20,269,2025-01-02,2026-06-01,YES
+Groundnut,10,Unknown,,Bhanvad APMC,G20,254,2025-01-03,2026-04-21,YES
+Groundnut,10,Unknown,,The Agricultural Produce Market Committee-Amreli,Big (With Shell),228,2025-01-01,2026-03-03,YES
+Groundnut,10,Unknown,,Mahuva(Station Road) APMC,Bold,220,2025-01-17,2026-09-23,YES
+Groundnut,10,Unknown,,Vyra APMC,Other,219,2025-01-02,2026-07-06,YES
+Groundnut,10,Unknown,,The Agricultural Produce Market Committee-Amreli,Bold,217,2025-01-01,2026-02-05,YES
+Groundnut,10,Unknown,,Palitana APMC,G20,209,2025-01-01,2026-08-04,YES
+Groundnut,10,Unknown,,Modasa APMC,Local,191,2025-01-03,2026-09-19,YES
+Groundnut,10,Unknown,,Deesa(Bhildi) APMC,Other,188,2025-01-02,2026-09-21,YES
+Groundnut,10,Unknown,,Bhesan APMC,Other,185,2025-01-04,2026-09-23,YES
+Groundnut,10,Unknown,,Jam Khambalia APMC,Other,180,2025-02-18,2026-08-29,YES
+Groundnut,10,Unknown,,Dhari APMC,Bold,169,2025-01-02,2026-04-06,YES
+Groundnut,10,Unknown,,Junagadh APMC,Local,169,2025-01-02,2026-06-05,YES
+Groundnut,10,Unknown,,Gondal APMC,G20,168,2025-01-02,2025-11-03,YES
+Groundnut,10,Unknown,,Babra APMC,G20,166,2025-11-27,2026-09-14,YES
+Groundnut,10,Unknown,,Modasa(Tintoi) APMC,Local,159,2025-01-03,2026-07-02,YES
+Groundnut,10,Unknown,,Dhari APMC,Other,158,2025-11-06,2026-09-17,YES
+Groundnut,10,Unknown,,Bhiloda APMC,Other,156,2025-01-02,2026-08-11,YES
+Groundnut,10,Unknown,,Talod APMC,Other,156,2025-01-02,2026-06-22,YES
+Groundnut,10,Unknown,,Vankaner APMC,Other,156,2025-01-28,2026-09-12,YES
+Groundnut,10,Unknown,,The Agricultural Produce Market Committee-Amreli,Other,155,2026-02-19,2026-09-22,YES
+Groundnut,10,Unknown,,Dhanera APMC,Other,152,2025-01-01,2026-06-20,YES
+Groundnut,10,Unknown,,Vadgam APMC,Other,152,2025-01-01,2026-07-14,YES
+Groundnut,10,Unknown,,Dhoraji APMC,Local,151,2025-01-06,2026-09-22,YES
+Groundnut,10,Unknown,,Jam Jodhpur APMC,Other,151,2025-11-14,2026-07-03,YES
+Groundnut,10,Unknown,,APMC HALVAD,Seed,149,2025-06-05,2026-08-31,YES
+Groundnut,10,Unknown,,Jam Jodhpur APMC,M-37,143,2025-03-01,2025-12-13,YES
+Groundnut,10,Unknown,,Bhavnagar APMC,G20,136,2025-01-01,2026-07-27,YES
+Groundnut,10,Unknown,,Gondal APMC,Bold,128,2025-11-07,2026-09-22,YES
+Rice,3,Unknown,,Dahod APMC,Lashkari,213,2025-11-07,2026-09-23,YES
+Rice,3,Unknown,,Dahod APMC,Coarse,212,2025-01-02,2025-11-06,YES
+Wheat,1,Unknown,,Dahod APMC,147 Average,496,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Dehgam(Rekhiyal) APMC,Other,496,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Dehgam APMC,Other,495,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Siddhpur APMC,Hybrid,477,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Mehsana APMC,Local,475,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Modasa APMC,Lokwan Gujrat,474,2025-01-03,2026-09-23,YES
+Wheat,1,Unknown,,Modasa(Tintoi) APMC,Lokwan,474,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Rajkot APMC,Sharbati,474,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Rajkot APMC,Lokwan,473,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Patan APMC,Other,469,2025-01-02,2026-09-22,YES
+Wheat,1,Unknown,,Himatnagar APMC,Sonalika,465,2025-01-27,2026-09-23,YES
+Wheat,1,Unknown,,Veraval APMC,Medium Fine,461,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Mehsana(Jornang) APMC,Other,458,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Savarkundla APMC,Lokwan,453,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Visnagar APMC,Other,451,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Jetpur(Dist.Rajkot) APMC,Lokwan,449,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Thara APMC,Other,448,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Rajula APMC,PISSI,444,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Savarkundla APMC,Bansi,441,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,APMC Bagasara,Lokwan Gujrat,440,2025-01-04,2026-09-23,YES
+Wheat,1,Unknown,,Vadali APMC,Other,436,2025-01-02,2026-09-22,YES
+Wheat,1,Unknown,,Deesa APMC,Other,435,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,JASDAN APMC,2189 No. 2,430,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Jetpur(Dist.Rajkot) APMC,Other,429,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Jamnagar APMC,Other,425,2025-01-20,2026-09-23,YES
+Wheat,1,Unknown,,Bhiloda APMC,Other,422,2025-01-02,2026-09-21,YES
+Wheat,1,Unknown,,Viramgam APMC,Other,421,2025-01-03,2026-09-23,YES
+Wheat,1,Unknown,,Chotila APMC,Local,418,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,APMC HALVAD,Other,413,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Khambhat(Grain Market) APMC,Other,407,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Sanad APMC,Sharbati,407,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Kalawad APMC,Other,399,2025-01-04,2026-09-23,YES
+Wheat,1,Unknown,,Taleja APMC,Kalyan,399,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Mahuva(Station Road) APMC,Kalyan,396,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Kapadvanj APMC,Other,395,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Junagadh APMC,Lokwan,388,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Visavadar APMC,Lokwan Gujrat,385,2025-01-03,2026-09-23,YES
+Wheat,1,Unknown,,The Agricultural Produce Market Committee-Amreli,Lokwan,384,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,The Agricultural Produce Market Committee-Amreli,Rajasthan Tukdi,381,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Dhanera APMC,Other,371,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Bhavnagar APMC,Local,368,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Junagadh APMC,Sharbati,366,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Bhesan APMC,Other,364,2025-01-04,2026-09-22,YES
+Wheat,1,Unknown,,Talod APMC,Other,356,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Kalol APMC,Other,353,2025-01-03,2026-09-23,YES
+Wheat,1,Unknown,,Porbandar APMC,Lokwan,341,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Zalod(Sanjeli) APMC,Other,318,2025-01-03,2026-09-23,YES
+Wheat,1,Unknown,,Meghraj APMC,Other,310,2025-01-15,2026-09-22,YES
+Wheat,1,Unknown,,Deesa(Bhildi) APMC,Other,303,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,JASDAN APMC,2189 No. 1,296,2025-01-01,2026-07-20,YES
+Wheat,1,Unknown,,Jambusar APMC,Other,291,2025-01-03,2025-11-06,YES
+Wheat,1,Unknown,,Dhrol APMC,Other,278,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Borsad APMC,Other,277,2025-01-02,2026-09-08,YES
+Wheat,1,Unknown,,Thara(Shihori) APMC,Other,260,2025-01-03,2026-09-23,YES
+Wheat,1,Unknown,,Morva Hafad APMC,Deshi,248,2025-01-01,2026-09-23,YES
+Wheat,1,Unknown,,Vankaner APMC,Lokwan,243,2025-11-06,2026-09-23,YES
+Wheat,1,Unknown,,Morbi APMC,Other,242,2025-11-08,2026-09-23,YES
+Wheat,1,Unknown,,Kadi APMC,Other,241,2025-11-06,2026-09-22,YES
+Wheat,1,Unknown,,Dahod APMC,Lokwan,239,2025-01-01,2025-11-06,YES
+Wheat,1,Unknown,,Porbandar APMC,Deshi,238,2025-11-09,2026-09-22,YES
+Wheat,1,Unknown,,Morbi APMC,Local,233,2025-01-01,2025-11-05,YES
+Wheat,1,Unknown,,Dhari APMC,Lokwan,232,2025-11-08,2026-09-23,YES
+Wheat,1,Unknown,,Dhragradhra APMC,Wheat,231,2025-03-03,2026-09-23,YES
+Wheat,1,Unknown,,Harij APMC,Other,230,2025-01-02,2026-09-23,YES
+Wheat,1,Unknown,,Vankaner APMC,Other,228,2025-01-02,2025-11-05,YES
+Wheat,1,Unknown,,Babra APMC,Medium,226,2025-11-07,2026-09-23,YES
+Wheat,1,Unknown,,Porbandar APMC,Other,225,2025-01-02,2026-03-16,YES
+Wheat,1,Unknown,,Kadi APMC,Deshi,224,2025-01-01,2025-11-03,YES
+Wheat,1,Unknown,,Radhanpur APMC,Other,224,2025-11-10,2026-09-22,YES
+Wheat,1,Unknown,,Zalod(Zalod) APMC,Other,224,2025-01-02,2025-11-03,YES
+Wheat,1,Unknown,,Dhoraji APMC,Lokwan,222,2025-01-02,2025-11-15,YES
+Wheat,1,Unknown,,Botad APMC,Other,216,2025-01-02,2025-11-05,YES
+Wheat,1,Unknown,,Palanpur APMC,Other,213,2025-01-02,2026-09-17,YES
+Wheat,1,Unknown,,Palanpur APMC,Deshi,212,2025-11-06,2026-09-23,YES
+Wheat,1,Unknown,,Babra APMC,Other,206,2025-01-02,2025-11-05,YES
+Wheat,1,Unknown,,Mansa APMC,Local,201,2025-12-08,2026-09-23,YES
+Wheat,1,Unknown,,Radhanpur APMC,Medium Fine,201,2025-01-02,2025-11-04,YES
+Wheat,1,Unknown,,Diyodar APMC,Other,189,2025-03-24,2026-09-23,YES
+Wheat,1,Unknown,,Palitana APMC,Other,189,2025-11-11,2026-09-22,YES
+Wheat,1,Unknown,,Dahod APMC,Wheat,188,2025-03-04,2025-11-06,YES
+Wheat,1,Unknown,,Palitana APMC,Hybrid,188,2025-01-01,2025-12-31,YES
+Wheat,1,Unknown,,Dhari APMC,Lokwan Gujrat,187,2025-01-02,2025-11-07,YES
+Wheat,1,Unknown,,Vijaynagar(Kundlakap) APMC,Other,186,2025-01-02,2026-07-06,YES
+Wheat,1,Unknown,,Jam Khambalia APMC,Other,185,2025-02-18,2026-08-29,YES
+Wheat,1,Unknown,,Jam Jodhpur APMC,Lok-1,178,2025-03-03,2025-12-24,YES
+Wheat,1,Unknown,,Jam Jodhpur APMC,Other,177,2025-03-01,2026-09-21,YES
+Wheat,1,Unknown,,Limkheda APMC,Other,176,2025-01-03,2026-01-17,YES
+Wheat,1,Unknown,,Botad APMC,Local,171,2025-11-06,2026-09-22,YES
+Wheat,1,Unknown,,Upleta APMC,Local,170,2025-11-15,2026-09-23,YES
+Wheat,1,Unknown,,Gondal APMC,Lokwan,166,2025-01-02,2025-11-03,YES
+Wheat,1,Unknown,,Upleta APMC,Other,160,2025-01-02,2026-01-10,YES
+Wheat,1,Unknown,,Vadgam APMC,Other,159,2025-11-07,2026-09-21,YES
+Wheat,1,Unknown,,Mansa APMC,Medium,156,2025-03-08,2025-11-04,YES
+Wheat,1,Unknown,,Bhanvad APMC,Other,155,2025-02-01,2026-04-16,YES
+Wheat,1,Unknown,,APMCKHEDBRAHMA,Other,152,2025-01-03,2026-06-05,YES
+Wheat,1,Unknown,,Gondal APMC,Lok-1,149,2025-11-07,2026-09-22,YES
+Wheat,1,Unknown,,Gondal APMC,Sechor No. 1,143,2025-11-07,2026-09-22,YES
+Wheat,1,Unknown,,Amirgadh APMC,White,138,2025-02-28,2026-06-10,YES
+Wheat,1,Unknown,,Dhoraji APMC,Lokwan Gujrat,136,2025-11-17,2026-09-22,YES
+Wheat,1,Unknown,,Vijapur(Gojjariya) APMC,Other,136,2025-02-01,2026-09-19,YES
+Wheat,1,Unknown,,Nizar APMC,Lokwan,124,2025-02-27,2026-06-03,YES
+Wheat,1,Unknown,,Vijapur APMC,Other,123,2025-01-28,2026-09-21,YES
+Wheat,1,Unknown,,APMCKHEDBRAHMA,Lok-1,122,2025-04-22,2026-07-17,YES

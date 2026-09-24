@@ -1,0 +1,76 @@
+crop,commodity_id,district_id,district
+Cotton,15,131,Ahmedabad
+Cotton,15,132,Amreli
+Cotton,15,135,Banaskanth
+Cotton,15,136,Bharuch
+Cotton,15,137,Bhavnagar
+Cotton,15,138,Botad
+Cotton,15,139,Chhota Udaipur
+Cotton,15,140,Dahod
+Cotton,15,142,Devbhumi Dwarka
+Cotton,15,143,Gandhinagar
+Cotton,15,144,Gir Somnath
+Cotton,15,145,Jamnagar
+Cotton,15,146,Junagarh
+Cotton,15,147,Kachchh
+Cotton,15,148,Kheda
+Cotton,15,150,Mehsana
+Cotton,15,151,Morbi
+Cotton,15,152,Narmada
+Cotton,15,154,Panchmahals
+Cotton,15,155,Patan
+Cotton,15,156,Porbandar
+Cotton,15,157,Rajkot
+Cotton,15,158,Sabarkantha
+Cotton,15,159,Surat
+Cotton,15,160,Surendranagar
+Cotton,15,163,Vadodara(Baroda)
+Wheat,1,131,Ahmedabad
+Wheat,1,132,Amreli
+Wheat,1,133,Anand
+Wheat,1,135,Banaskanth
+Wheat,1,136,Bharuch
+Wheat,1,137,Bhavnagar
+Wheat,1,138,Botad
+Wheat,1,140,Dahod
+Wheat,1,142,Devbhumi Dwarka
+Wheat,1,143,Gandhinagar
+Wheat,1,144,Gir Somnath
+Wheat,1,145,Jamnagar
+Wheat,1,146,Junagarh
+Wheat,1,147,Kachchh
+Wheat,1,148,Kheda
+Wheat,1,150,Mehsana
+Wheat,1,151,Morbi
+Wheat,1,154,Panchmahals
+Wheat,1,155,Patan
+Wheat,1,156,Porbandar
+Wheat,1,157,Rajkot
+Wheat,1,158,Sabarkantha
+Wheat,1,159,Surat
+Wheat,1,160,Surendranagar
+Wheat,1,163,Vadodara(Baroda)
+Groundnut,10,132,Amreli
+Groundnut,10,135,Banaskanth
+Groundnut,10,137,Bhavnagar
+Groundnut,10,138,Botad
+Groundnut,10,139,Chhota Udaipur
+Groundnut,10,140,Dahod
+Groundnut,10,142,Devbhumi Dwarka
+Groundnut,10,144,Gir Somnath
+Groundnut,10,145,Jamnagar
+Groundnut,10,146,Junagarh
+Groundnut,10,147,Kachchh
+Groundnut,10,150,Mehsana
+Groundnut,10,151,Morbi
+Groundnut,10,154,Panchmahals
+Groundnut,10,155,Patan
+Groundnut,10,156,Porbandar
+Groundnut,10,157,Rajkot
+Groundnut,10,158,Sabarkantha
+Groundnut,10,159,Surat
+Groundnut,10,160,Surendranagar
+Rice,3,133,Anand
+Rice,3,136,Bharuch
+Rice,3,140,Dahod
+Rice,3,163,Vadodara(Baroda)
