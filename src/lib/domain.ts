@@ -61,8 +61,8 @@ export const cities: Record<string, [number, number]> = {
 };
 
 export const rupee = (n: number | undefined | null) =>
-  n == null
-    ? 'â€”'
+  n == null || !Number.isFinite(n)
+    ? '-'
     : new Intl.NumberFormat('en-IN', {
         style: 'currency',
         currency: 'INR',

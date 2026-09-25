@@ -1,7 +1,7 @@
 import {useEffect,useState} from 'react';
 import {useOutletContext,useSearchParams} from 'react-router-dom';
 import {useApp} from './context';
-import {api} from './api';
+import {buildStaticMarketFeed} from './staticRecommendations';
 import type {Crop} from './domain';
 export type MarketChoice={market_id:string;transport_id:string|null;storage_id:string|null};
 export type MarketOption={id:string;market:string;district:string;state:string;variety:string;grade:string;price:number;date:string;distance_km:number|null;straight_distance_km:number;variety_match:string;source:string;source_url:string;distance_note:string;[key:string]:any};
@@ -15,7 +15,7 @@ export function useMarketOptions(crop:Crop|undefined,storageDays=0){
  const key=crop?JSON.stringify([preview? 'preview':user?.uid,cropKey(crop),storageDays]):'';
  useEffect(()=>{if(!crop){setState({key,feed:null,error:'',loading:false});return;}let active=true;const controller=new AbortController();setState({key,feed:null,error:'',loading:true});
  const cached=cache.get(key);if(!keyRevision&&cached&&Date.now()-cached.at<3*60*1000){setState({key,feed:cached.value,error:'',loading:false});return;}
- const request=preview?api<MarketFeed>('/market-options/preview',{method:'POST',body:JSON.stringify({crop:cropContext(crop),storage_days:storageDays}),signal:controller.signal}):api<MarketFeed>(`/crops/${crop.id}/market-options?storage_days=${storageDays}`,{signal:controller.signal});
+ const request=Promise.resolve(buildStaticMarketFeed(crop,storageDays));
  const timeout=setTimeout(()=>controller.abort(),90000);
  request.then(feed=>{if(!active)return;if(cache.size>20)cache.clear();cache.set(key,{at:Date.now(),value:feed});setState({key,feed,error:'',loading:false});}).catch(e=>{if(active)setState({key,feed:null,error:e?.name==='AbortError'?'Market lookup took too long. Please refresh suggestions.':e.message,loading:false});}).finally(()=>clearTimeout(timeout));
  return()=>{active=false;controller.abort();clearTimeout(timeout);};

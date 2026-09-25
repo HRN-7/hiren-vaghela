@@ -6,8 +6,8 @@ import {CropSelector} from '../components/CropSelector';
 import {useLanguage} from '../lib/i18n';
 import {useApp} from '../lib/context';
 import {rupee,dateLabel} from '../lib/domain';
-import {api} from '../lib/api';
-import {cropContext,cropKey,useSelectedCrop,useMarketOptions,type MarketChoice,type MarketOption} from '../lib/marketFlow';
+import {cropKey,useSelectedCrop,useMarketOptions,type MarketChoice,type MarketOption} from '../lib/marketFlow';
+import {buildStaticComparison} from '../lib/staticRecommendations';
 export function NetCalculator(){return <Recommendations/>;}
 export function Recommendations(){
  const{t}=useLanguage();const{base,preview}=useOutletContext<any>();const nav=useNavigate();const{crops,crop,selectCrop}=useSelectedCrop();const{marketFlow,setMarketFlow,setNotice}=useApp();
@@ -19,7 +19,23 @@ export function Recommendations(){
  function update(next:MarketChoice[]){setCompareError('');setMarketFlow({key,storageDays:days,snapshotId:feed?.snapshot_id,selections:next,result:null});}
  function selectMarket(id:string){if(selections.some(s=>s.market_id===id)){update(selections.filter(s=>s.market_id!==id));return;}if(selections.length>=3){setCompareError('Choose up to 3 markets. Deselect one to add another.');return;}const quote=feed?.services.transport.find(s=>s.market_id===id&&!s.storage_id);update([...selections,{market_id:id,transport_id:days?null:quote?.id||null,storage_id:null}]);}
  function option(id:string,patch:Partial<MarketChoice>){update(selections.map(s=>s.market_id===id?{...s,...patch}:s));}
- async function compare(){if(!crop||!feed)return;setBusy(true);setCompareError('');const requestKey=key;const snapshotId=feed.snapshot_id;try{const payload={snapshot_id:snapshotId,selections};const data=await api(preview?'/market-options/preview/compare':`/crops/${crop.id}/recommendation`,{method:'POST',body:JSON.stringify(preview?{...payload,crop:cropContext(crop)}:payload)});if(currentRequest.current!==requestKey+'|'+snapshotId)return;setMarketFlow((old:any)=>old?.key===requestKey&&old.snapshotId===snapshotId?{...old,result:data}:old);if(!preview&&data.status==='estimated')setNotice(t('Comparison saved.'));nav(`${base}/calculator?crop=${encodeURIComponent(crop.id)}`);}catch(e){setCompareError(e instanceof Error?e.message:'Comparison could not complete. Refresh suggestions.');}finally{setBusy(false);}}
+ async function compare(){
+  if(!crop||!feed)return;
+  setBusy(true);
+  setCompareError('');
+  const requestKey=key;
+  const snapshotId=feed.snapshot_id;
+  try{
+    const data=buildStaticComparison(crop,feed,selections,days);
+    if(currentRequest.current!==requestKey+'|'+snapshotId)return;
+    setMarketFlow((old:any)=>old?.key===requestKey&&old.snapshotId===snapshotId?{...old,result:data}:old);
+    nav(`${base}/calculator?crop=${encodeURIComponent(crop.id)}`);
+  }catch(e){
+    setCompareError(e instanceof Error?e.message:'Comparison could not complete.');
+  }finally{
+    setBusy(false);
+  }
+}
  const best=result?.ranking.find((r:any)=>r.id===result.best_market_id);
  return <><div className="page-heading"><div><span className="eyeline">CROP → OPTIONS → YOUR BEST MARKET</span><h1>{t('AI Net Realization')}</h1><p>{t('Compare real mandis after the complete cost of selling your crop.')}</p></div>{crop&&<button className="btn secondary" disabled={loading||busy} onClick={()=>{setMarketFlow({key,storageDays:days,selections:[],result:null});refresh();}}><RefreshCw size={17}/>{t('Refresh suggestions')}</button>}</div>
  {!crop?<Panel><Empty title="Add a crop to find your markets" description="Your crop, variety, grade, quantity and location will guide the suggestions." action={<Link className="btn" to={`${base}/crops/new`}><Plus size={17}/>{t('Add crop')}</Link>}/></Panel>:<>
