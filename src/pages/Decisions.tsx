@@ -6,8 +6,8 @@ import {CropSelector} from '../components/CropSelector';
 import {useLanguage} from '../lib/i18n';
 import {useApp} from '../lib/context';
 import {rupee,dateLabel} from '../lib/domain';
-import {cropKey,useSelectedCrop,useMarketOptions,type MarketChoice,type MarketOption} from '../lib/marketFlow';
-import {buildStaticComparison} from '../lib/staticRecommendations';
+import {api} from '../lib/api';
+import {cropContext,cropKey,useSelectedCrop,useMarketOptions,type MarketChoice,type MarketOption} from '../lib/marketFlow';
 export function NetCalculator(){return <Recommendations/>;}
 export function Recommendations(){
  const{t}=useLanguage();const{base,preview}=useOutletContext<any>();const nav=useNavigate();const{crops,crop,selectCrop}=useSelectedCrop();const{marketFlow,setMarketFlow,setNotice}=useApp();
@@ -26,7 +26,20 @@ export function Recommendations(){
   const requestKey=key;
   const snapshotId=feed.snapshot_id;
   try{
-    const data=buildStaticComparison(crop,feed,selections,days);
+    const payload={snapshot_id:snapshotId,selections};
+    const data=await api(
+      preview
+        ?'/market-options/preview/compare'
+        :`/crops/${crop.id}/recommendation`,
+      {
+        method:'POST',
+        body:JSON.stringify(
+          preview
+            ?{...payload,crop:cropContext(crop)}
+            :payload
+        )
+      }
+    );
     if(currentRequest.current!==requestKey+'|'+snapshotId)return;
     setMarketFlow((old:any)=>old?.key===requestKey&&old.snapshotId===snapshotId?{...old,result:data}:old);
     nav(`${base}/calculator?crop=${encodeURIComponent(crop.id)}`);

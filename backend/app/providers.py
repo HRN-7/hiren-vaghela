@@ -78,11 +78,380 @@ async def fetch_json(url, params=None, ttl=600):
 # Data.gov.in / AGMARKNET
 # =========================================================
 
+
+async def agmarknet_prices(
+    crop,
+    state="Gujarat",
+    market="",
+):
+    source = "AGMARKNET 2.0"
+
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Origin": "https://agmarknet.gov.in",
+        "Referer": "https://agmarknet.gov.in/",
+        "User-Agent": "Mozilla/5.0",
+    }
+
+    def find_named_id(obj, target, kind):
+        target = str(target).strip().casefold()
+
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                key_lower = str(key).casefold()
+
+                if (
+                    isinstance(value, str)
+                    and value.strip().casefold() == target
+                ):
+                    valid_name = (
+                        kind == "state"
+                        and "state" in key_lower
+                    ) or (
+                        kind == "commodity"
+                        and (
+                            "cmdt" in key_lower
+                            or "commodity" in key_lower
+                        )
+                    )
+
+                    if valid_name:
+                        for id_key in (
+                            "id",
+                            "state_id",
+                            "cmdt_id",
+                            "commodity_id",
+                        ):
+                            raw_id = obj.get(id_key)
+
+                            try:
+                                if raw_id is not None:
+                                    return int(raw_id)
+                            except (TypeError, ValueError):
+                                pass
+
+            for value in obj.values():
+                found = find_named_id(
+                    value,
+                    target,
+                    kind,
+                )
+                if found is not None:
+                    return found
+
+        elif isinstance(obj, list):
+            for item in obj:
+                found = find_named_id(
+                    item,
+                    target,
+                    kind,
+                )
+                if found is not None:
+                    return found
+
+        return None
+
+    try:
+        from zoneinfo import ZoneInfo
+
+        today = datetime.now(
+            ZoneInfo("Asia/Kolkata")
+        ).date()
+
+        async with httpx.AsyncClient(
+            timeout=40,
+            headers=headers,
+            follow_redirects=True,
+        ) as client:
+
+            filters_response = await client.get(
+                "https://api.agmarknet.gov.in/v1/"
+                "daily-price-arrival/filters"
+            )
+            filters_response.raise_for_status()
+
+            filters_data = filters_response.json()
+
+            state_id = find_named_id(
+                filters_data,
+                state,
+                "state",
+            )
+
+            commodity_id = find_named_id(
+                filters_data,
+                crop,
+                "commodity",
+            )
+
+            # Verified IDs for current Gujarat/Cotton demo.
+            if (
+                state_id is None
+                and str(state).casefold() == "gujarat"
+            ):
+                state_id = 11
+
+            if (
+                commodity_id is None
+                and str(crop).casefold() == "cotton"
+            ):
+                commodity_id = 15
+
+            if state_id is None:
+                return unavailable(
+                    source,
+                    f"AGMARKNET state not found: {state}",
+                )
+
+            if commodity_id is None:
+                return unavailable(
+                    source,
+                    f"AGMARKNET commodity not found: {crop}",
+                )
+
+            previous_year = (
+                today.year
+                if today.month > 1
+                else today.year - 1
+            )
+
+            previous_month = (
+                today.month - 1
+                if today.month > 1
+                else 12
+            )
+
+            periods = [
+                (today.year, today.month),
+                (previous_year, previous_month),
+            ]
+
+            records = []
+            seen = set()
+
+            for year, month_number in periods:
+
+                response = await client.get(
+                    "https://api.agmarknet.gov.in/v1/"
+                    "prices-and-arrivals/date-wise/"
+                    "specific-commodity",
+                    params={
+                        "year": year,
+                        "month": month_number,
+                        "stateId": state_id,
+                        "commodityId": commodity_id,
+                        "includeExcel": "false",
+                    },
+                )
+
+                response.raise_for_status()
+                payload = response.json()
+
+                for market_block in payload.get(
+                    "markets",
+                    [],
+                ):
+                    market_name = str(
+                        market_block.get(
+                            "marketName",
+                            "",
+                        )
+                    ).strip()
+
+                    if not market_name:
+                        continue
+
+                    if market:
+                        wanted = str(
+                            market
+                        ).strip().casefold()
+
+                        actual = (
+                            market_name.casefold()
+                        )
+
+                        if (
+                            wanted not in actual
+                            and actual not in wanted
+                        ):
+                            continue
+
+                    for day_block in market_block.get(
+                        "dates",
+                        [],
+                    ):
+                        raw_date = day_block.get(
+                            "arrivalDate",
+                            "",
+                        )
+
+                        try:
+                            arrival_date = datetime.strptime(
+                                raw_date,
+                                "%d/%m/%Y",
+                            ).date()
+                        except (TypeError, ValueError):
+                            continue
+
+                        if arrival_date > today:
+                            continue
+
+                        for row in day_block.get(
+                            "data",
+                            [],
+                        ):
+                            try:
+                                min_price = float(
+                                    row.get(
+                                        "minimumPrice"
+                                    )
+                                )
+
+                                max_price = float(
+                                    row.get(
+                                        "maximumPrice"
+                                    )
+                                )
+
+                                modal_price = float(
+                                    row.get(
+                                        "modalPrice"
+                                    )
+                                )
+
+                                if any(
+                                    not math.isfinite(v)
+                                    or v <= 0
+                                    for v in (
+                                        min_price,
+                                        max_price,
+                                        modal_price,
+                                    )
+                                ):
+                                    continue
+
+                                if not (
+                                    min_price
+                                    <= modal_price
+                                    <= max_price
+                                ):
+                                    continue
+
+                                variety = str(
+                                    row.get(
+                                        "variety",
+                                        "",
+                                    )
+                                ).strip()
+
+                                key = (
+                                    market_name.casefold(),
+                                    arrival_date.isoformat(),
+                                    variety.casefold(),
+                                    min_price,
+                                    max_price,
+                                    modal_price,
+                                )
+
+                                if key in seen:
+                                    continue
+
+                                seen.add(key)
+
+                                records.append({
+                                    "market": market_name,
+                                    "district": "",
+                                    "state": state,
+                                    "crop": crop,
+                                    "commodity": crop,
+                                    "variety": variety,
+                                    "grade": "",
+                                    "min": min_price,
+                                    "max": max_price,
+                                    "price": modal_price,
+                                    "modal_price": modal_price,
+                                    "date": arrival_date.isoformat(),
+                                    "arrival_date": raw_date,
+                                    "arrivals": row.get(
+                                        "arrivals"
+                                    ),
+                                })
+
+                            except (
+                                TypeError,
+                                ValueError,
+                            ):
+                                continue
+
+        if not records:
+            return unavailable(
+                source,
+                "No recent AGMARKNET records match this crop and state.",
+            )
+
+        records.sort(
+            key=lambda row: row["date"],
+            reverse=True,
+        )
+
+        latest_date = records[0]["date"]
+
+        age_days = (
+            today
+            - date.fromisoformat(latest_date)
+        ).days
+
+        return {
+            "status": (
+                "current"
+                if age_days <= 2
+                else "historical"
+            ),
+            "date": latest_date,
+            "fetched_at": stamp(),
+            "source": source,
+            "source_url": "https://agmarknet.gov.in/",
+            "records": records,
+            "truncated": False,
+        }
+
+    except httpx.HTTPStatusError as error:
+        return unavailable(
+            source,
+            "AGMARKNET request failed with HTTP "
+            f"{error.response.status_code}.",
+        )
+
+    except httpx.RequestError:
+        return unavailable(
+            source,
+            "Could not connect to AGMARKNET.",
+        )
+
+    except Exception as error:
+        print(
+            "AGMARKNET error:",
+            type(error).__name__,
+            str(error),
+        )
+
+        return unavailable(
+            source,
+            "AGMARKNET market service is temporarily unavailable.",
+        )
+
+
 async def prices(
     crop,
     state="Gujarat",
     market="",
 ):
+    return await agmarknet_prices(
+        crop,
+        state,
+        market,
+    )
+
     cfg = settings()
 
     source = "AGMARKNET via data.gov.in"
@@ -950,3 +1319,4 @@ async def partner_services(
             "Connected service provider",
             "Live service availability could not be confirmed.",
         )
+

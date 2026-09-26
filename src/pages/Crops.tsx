@@ -9,6 +9,24 @@ import {useLanguage} from '../lib/i18n';
 import {Panel,Field,Note,Badge,Empty,Modal,Busy} from '../components/ui';
 import {crops as cropNames,cropParameters,varieties,gradeGuides,today,dateLabel,type Crop,type CropName} from '../lib/domain';
 import {api} from '../lib/api';
+const normalizeCropLocation=(value:string)=>{
+ const raw=value.trim();
+ if(raw.includes(','))return raw;
+ const known:Record<string,string>={
+  ahmedabad:'Ahmedabad, Ahmedabad, Gujarat',
+  vadodara:'Vadodara, Vadodara, Gujarat',
+  surat:'Surat, Surat, Gujarat',
+  rajkot:'Rajkot, Rajkot, Gujarat',
+  junagadh:'Junagadh, Junagadh, Gujarat',
+  gandhinagar:'Gandhinagar, Gandhinagar, Gujarat',
+  jamnagar:'Jamnagar, Jamnagar, Gujarat',
+  bhavnagar:'Bhavnagar, Bhavnagar, Gujarat',
+  amreli:'Amreli, Amreli, Gujarat',
+  morbi:'Morbi, Morbi, Gujarat'
+ };
+ return known[raw.toLowerCase()]||raw;
+};
+
 export function Crops(){const{crops,setCrops,setNotice}=useApp();const{preview,base}=useOutletContext<any>();const{t}=useLanguage();const[remove,setRemove]=useState<Crop|null>(null);const[error,setError]=useState('');return <><div className="page-heading"><div><span className="eyeline">YOUR PRODUCE</span><h1>{t('My crops')}</h1><p>{t('Keep your crop details ready for the right opportunity.')}</p></div><Link className="btn" to={`${base}/crops/new`}><Plus size={18}/>{t('Add crop')}</Link></div>{error&&<Note tone="error">{error}</Note>}{crops.length?<div className="cards-grid">{crops.map((c:Crop)=><Panel key={c.id} className="crop-card"><div className="card-top"><span className="round-icon"><Sprout/></span><Badge tone="green">{t('Grade')} {c.grade}</Badge></div><h2>{t(c.name)}</h2><p>{c.variety} · {c.location}</p><div className="big-quantity">{c.quantity}<span>qtl</span></div><dl><div><dt>{t('Expected selling date')}</dt><dd>{dateLabel(c.sell_date)}</dd></div><div><dt>{t('Visibility')}</dt><dd>{t(c.public?'Buyer discovery':'Private')}</dd></div></dl><CropPhotoGallery crop={c} preview={preview}/><div className="card-actions"><Link className="text-link" to={`${base}/recommendations?crop=${encodeURIComponent(c.id)}`}>{t('Compare markets')} →</Link><button className="icon-btn" aria-label={'Delete '+c.name} onClick={()=>setRemove(c)}><Trash2 size={17}/></button></div></Panel>)}</div>:<Panel><Empty title="No crops added yet" description="Start with your crop, quantity and grade." action={<Link className="btn" to={`${base}/crops/new`}><Plus size={18}/>{t('Add crop')}</Link>}/></Panel>}{remove&&<Modal title="Delete crop?" onClose={()=>setRemove(null)}><p>{t('This will remove the crop and its photos.')}</p><div className="modal-actions"><button className="btn secondary" onClick={()=>setRemove(null)}>{t('Cancel')}</button><button className="btn danger" onClick={async()=>{try{if(!preview)await api('/crops/'+remove.id,{method:'DELETE'});setCrops(crops.filter((c:Crop)=>c.id!==remove.id));setRemove(null);setNotice(t('Crop removed.'));}catch(e:any){setError(e.message);setRemove(null);}}}>{t('Delete')}</button></div></Modal>}</>}
 export function AddCrop(){
  const{t}=useLanguage();const{preview,base,role}=useOutletContext<any>();const{crops,setCrops,setNotice,profile,setSelectedCropId}=useApp();const nav=useNavigate();
@@ -19,7 +37,7 @@ export function AddCrop(){
  async function submit(e:FormEvent<HTMLFormElement>){
   e.preventDefault();setError('');const data=new FormData(e.currentTarget);const parameters:Record<string,number|string>={};
   for(const p of cropParameters[name])if(data.get(p.key)!==''&&data.get(p.key)!==null)parameters[p.key]=Number(data.get(p.key));
-  const payload={name,variety,quantity:Number(data.get('quantity')),grade,parameters,location:String(data.get('location')).trim(),sell_date:String(data.get('date')),notes:String(data.get('notes')),public:data.get('public')==='on',acknowledged:data.get('ack')==='on'};
+  const payload={name,variety,quantity:Number(data.get('quantity')),grade,parameters,location:normalizeCropLocation(String(data.get('location'))),sell_date:String(data.get('date')),notes:String(data.get('notes')),public:data.get('public')==='on',acknowledged:data.get('ack')==='on'};
   setBusy(true);try{
    let crop:Crop;
    if(preview){const encoded=await Promise.all(photos.map(p=>new Promise<string>((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result));reader.onerror=()=>reject(Error('Photo could not be read. Replace it and retry.'));reader.readAsDataURL(p.file);})));crop={...payload,id:previewId(),photos:encoded};}
